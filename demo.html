@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+		<script type="text/javascript">
+			google.load("jquery", "1.4.0");
+		</script>
+		<script src="jquery.quickSubmit.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<form class="demo_form" action="" method="post">
+			<textarea name="test">test value</textarea>
+			<input type="submit" class="submit" value="start test!" />
+			<p class="message"></p>
+		</form>
+		<script type="text/javascript">
+			$('.submit').click(function(){
+				$('.message').html('submiting form with test value: ' + $('textarea').val());
+				return false;
+			});
+			$('.demo_form').quickSubmit();
+		</script>
+	</body>
+</html>
