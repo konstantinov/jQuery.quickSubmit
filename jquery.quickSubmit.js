@@ -3,10 +3,12 @@ $.fn.quickSubmit = function() {
 		var form = $(this);
 		$(':input', $(this)).live('keypress', function(e){
 			if ($.fn.quickSubmit.enterCheck[e.which] && $.fn.quickSubmit.isCtrl) {
-				if ($('input[type="submit"]', form).length == 0)
-					$('input[type="button"]:last', $.fn.quickSubmit.form).click();
-				else
-					$('input[type="submit"]', form).click();
+				if ($('input[type="submit"]', form).length)
+					return $('input[type="submit"]', form).click();
+				if ($('input[type="button"]', form).length)
+					return $('input[type="button"]:last', $.fn.quickSubmit.form).click();
+				
+				return $('a[class*="submit"]:last', form).click();
 			}
 		});
 	});
